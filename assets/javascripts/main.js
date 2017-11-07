@@ -2,8 +2,16 @@ window.onload = function(){
   /**
    * Evento de Click
    */
-  selector('.resize-action').addEventListener('click', function(e){
+  document.querySelector('.resize-action').addEventListener('click', function(e){
     e.preventDefault();
-    resizeImagesToFit(selector('.input-files').files, 200, 200)
+
+    // using Array fro files
+    new FileResize({
+      boxPreview: document.querySelector('.previews'), 
+      files: document.querySelector('.input-files').files, 
+      width: 200, 
+      height: 200,
+      loading: 'carregando...' // (opcional)
+    })
   })
 }
